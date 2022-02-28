@@ -5,13 +5,18 @@
 using namespace std;
 
 
-
 int main() {
 	int n;
 	cin >> n;
 
+	string s;
+	string s1 = "99999999";
+	string s2 = "99999999";
 	string s3 = "99999999";
+	string val1 = ""; //记录来宾中最年长校友
+	string val2 = ""; //记录最年长来宾
 	string val3 = ""; //记录最年长校友
+
 	//存储校友身份info
 	map<string, bool> mp;
 	for (int i = 0; i < n; i++) {
@@ -27,19 +32,8 @@ int main() {
 
 	int c;
 	cin >> c;
-
-	string s;
-	string s1 = "99999999";
-	string s2 = "99999999";
-
-
-
-
-
 	bool flag = false;
 	int ans = 0;
-	string val1 = ""; //记录来宾中最年长校友
-	string val2 = ""; //记录最年长来宾
 	for (int i = 0; i < c; i++) {
 		cin >> s; //获得来宾信息
 		if (mp[s]) {//如果来宾是校友，ans++，并输出最年长的；
@@ -59,16 +53,11 @@ int main() {
 			}
 		}
 	}
-
+	cout << ans << endl;
 	if (flag) {
-		cout << ans << endl;
 		if (val1 > val3) cout << val1 << endl;
 		else cout << val3 << endl;
-
 	}
-	else {
-		cout << val2 << endl;
-	}
-
+	else cout << val2 << endl;
 	return 0;
 }
